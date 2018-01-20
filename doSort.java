@@ -3,10 +3,7 @@ package com.Sort;
 import com.Sort.dialogFrame.ExDialog;
 import com.Sort.sortMethod.*;
 
-import javax.swing.*;
 import java.awt.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * 每次排序都生成一个doSort对象
@@ -60,34 +57,36 @@ public class doSort {
             //记录一次排序的开始时间
             startTime=System.currentTimeMillis();
 
-            //排序选择器
-            switch (sortType) {
-                case "选择排序":
-                    Select_Sort.sort(array);
-                    break;
-                case "冒泡排序":
-                    Bubble_Sort.sort(array);
-                    break;
-                case "快速排序":
-                    Quick_Sort.sort(array);
-                    break;
-                case "希尔排序":
-                    Shell_Sort.sort(array);
-                    break;
-                case "插入排序":
-                    Insert_Sort.sort(array);
-                    break;
-                case "堆  排序":
-                    Heap_Sort.sort(array);
-                    break;
-                case "基数排序":
-                    Radix_Sort.sort(array);
-                    break;
-                case "合并排序":
-                    Merge_Sort.sort(array);
-                    break;
-                default:
-                    break;
+            if (i>0) {
+                //排序选择器
+                switch (sortType) {
+                    case "选择排序":
+                        Select_Sort.sort(array);
+                        break;
+                    case "冒泡排序":
+                        Bubble_Sort.sort(array);
+                        break;
+                    case "快速排序":
+                        Quick_Sort.quick(array);
+                        break;
+                    case "希尔排序":
+                        Shell_Sort.sort(array);
+                        break;
+                    case "插入排序":
+                        Insert_Sort.sort(array);
+                        break;
+                    case "堆排序":
+                        Heap_Sort.sort(array);
+                        break;
+                    case "基数排序":
+                        Radix_Sort.sort(array);
+                        break;
+                    case "合并排序":
+                        Merge_Sort.sort(array);
+                        break;
+                    default:
+                        break;
+                }
             }
 
             //记录一次排序的结束时间
@@ -103,7 +102,7 @@ public class doSort {
         times[index]=sorttime;
 
         //将一次的排序时间打印在排序文本框
-        textArea.setSortText(sortType+"-------数组大小:"+(index*50000)+"-------用时:"+(endTime-startTime)+"ms"+" -> "+((endTime-startTime)/1000)+"s");
+        textArea.setSortText(sortType+"-------数组大小:"+(index*50000)+"-------用时:"+(endTime-startTime)+"ms"+" -> "+(endTime-startTime)+"ms");
     }
 
     //获取排序用时的记录

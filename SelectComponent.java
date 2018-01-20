@@ -7,7 +7,7 @@ import javax.swing.*;
  */
 public class SelectComponent {
     //排序方法
-    private static String[] sortType={"选择排序","冒泡排序","快速排序","希尔排序","插入排序","堆  排序","基数排序","合并排序"};
+    private static String[] sortType={"选择排序","冒泡排序","快速排序","希尔排序","插入排序","堆排序","基数排序","合并排序"};
     //下拉组合框
     private static JComboBox comboBox;
     //复选框面板
@@ -57,5 +57,10 @@ public class SelectComponent {
             else selects[i]=null;
         }
         return selects;
+    }
+
+    //获取排序数组名称
+    public static String[] getSortType(){
+        return sortType;
     }
 }

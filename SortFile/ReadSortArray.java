@@ -2,11 +2,8 @@ package com.Sort.SortFile;
 
 import com.Sort.SelectComponent;
 import com.Sort.TextComponent;
-import sun.dc.pr.PRError;
 
 import java.io.*;
-import java.nio.file.Paths;
-import java.util.Scanner;
 
 /**
  * "读取"按钮触发，从本地txt文件中读入选择项的文件，获取已经保存的时间数组
@@ -33,29 +30,38 @@ public class ReadSortArray extends SortFile{
                 //生成文件
                 file = new File(DEFAULT_DIRECTORY + filename + ".txt");
 
-                //若文件不存在，读取默认文件
+                //若文件不存在
                 if (!file.exists()) {
-                    try {
-                        file = new File(DEFAULT_PATH);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+                    textComponent.setSortText("此文件不存在");
+                    continue;
                 }
 
-                //将读取到的便于阅读的字符串存储到arratString中
-                arrayString=new String();
-                arrayString=this.getContent(file);
+                //当文件存在，那么读取字符串
+                else {
+                    //将读取到的便于阅读的字符串存储到arratString中
+                    arrayString = new String();
+                    arrayString = this.getContent(file);
 
-                //在sortText中显示
-                textComponent.setSortText(arrayString);
+                    //获取对应的数组
+                    String[] textString = arrayString.split("\r\n");
+                    int[] textInt = new int[textString.length];
+                    System.out.println("本次排序"+filename+"数组容量为"+textInt.length);
+                    for (int i = 1; i < textString.length; i++) {
+                        //ms转换成s
+                        if (filename=="希尔排序"||filename=="堆排序"||filename=="快速排序"||filename=="基数排序") {
+                            textInt[i] = Integer.parseInt(textString[i]);
+                        }else {
+                            textInt[i] = (Integer.parseInt(textString[i]))/1000;
+                        }
+                        System.out.println(textInt[i]);
+                    }
 
-                //获取对应的数组
+                    //用提取到的数据修改对应的排序时间数组
+                    setSortTypeArray(filename,textInt);
 
-                //用提取到的数据修改对应的排序时间数组
-                //setSortTypeArray(filename,sortResult);
+                }
             }
         }
-
     }
 
     //获取文件的内容，生成一个字符串
@@ -72,8 +78,10 @@ public class ReadSortArray extends SortFile{
             //若读到null，则读取结束
             if (content==null)break;
 
+            String[] contentsplit=content.split("\\|");
+
             //将读取的字符串加到StringBuilder中
-            stringBuilder.append(content.trim());
+            stringBuilder.append(contentsplit[1].trim());
             stringBuilder.append("\r\n");
         }
 

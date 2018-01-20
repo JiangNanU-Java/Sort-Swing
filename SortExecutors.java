@@ -2,9 +2,6 @@ package com.Sort;
 
 import com.Sort.SortFile.SortFile;
 
-import java.io.File;
-import java.util.concurrent.*;
-
 /**
  * 排序线程池
  * 点击一次排序按钮，则开启一个排序线程

@@ -1,42 +1,48 @@
 package com.Sort.sortMethod;
 
 public class Merge_Sort extends Example {
-    //
-    private static void mergeSort(int[] a) {
-        int tmpArray[]= new int[a.length-1];
-        mergeSort(a,tmpArray,0,a.length-1);
+    public static void sort(int[] a) {
+        Sort(a, 0, a.length - 1);
     }
 
-    private static void mergeSort(int[] a,int[] tmpArray, int low, int high){
-        if (low<high){
-            int mid=(low+high)/2;
-            mergeSort(a,tmpArray,low,mid);
-            mergeSort(a,tmpArray,mid+1,high);
-            merge(a,tmpArray,low,mid+1,high);
-        }
+    private static void Sort(int[] a, int left, int right) {
+        if(left>=right)
+            return;
+
+        int mid = (left + right) / 2;
+        //二路归并排序里面有两个Sort，多路归并排序里面写多个Sort就可以了
+        Sort(a, left, mid);
+        Sort(a, mid + 1, right);
+        merge(a, left, mid, right);
+
     }
 
-    private static void merge(int[] a,int[] tmpArray,int leftPos,int rightPos,int rightEnd) {
-        int leftEnd=rightPos-1;
-        int tmpPos=leftPos;
-        int numElements=rightEnd-leftPos+1;
+    private static void merge(int[] a, int left, int mid, int right) {
 
-        while (leftPos<=leftEnd&&rightPos<=rightEnd){
-            if (a[leftPos]<=a[rightPos])
-                tmpArray[tmpPos++]=a[leftPos];
+        int[] tmp = new int[a.length];
+        int r1 = mid + 1;
+        int tIndex = left;
+        int cIndex=left;
+        // 逐个归并
+        while(left <=mid && r1 <= right) {
+            if (a[left] <= a[r1])
+                tmp[tIndex++] = a[left++];
             else
-                tmpArray[tmpPos++]=a[rightPos];
+                tmp[tIndex++] = a[r1++];
         }
-        while (leftPos<=leftEnd)
-            tmpArray[tmpPos++]=a[leftPos];
-        while (rightPos<=rightEnd)
-            tmpArray[tmpPos++]=a[rightPos];
+        // 将左边剩余的归并
+        while (left <=mid) {
+            tmp[tIndex++] = a[left++];
+        }
+        // 将右边剩余的归并
+        while ( r1 <= right ) {
+            tmp[tIndex++] = a[r1++];
+        }
 
-        for (int i=0;i<numElements;i++,rightEnd--)
-            a[rightEnd]=tmpArray[rightEnd];
-    }
-
-    public static void sort(int[] array){
-        mergeSort(array);
+        //从临时数组拷贝到原数组
+        while(cIndex<=right){
+            a[cIndex]=tmp[cIndex];
+            cIndex++;
+        }
     }
 }

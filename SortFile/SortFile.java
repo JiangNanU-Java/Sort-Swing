@@ -3,8 +3,6 @@ package com.Sort.SortFile;
 import com.Sort.SelectComponent;
 import com.Sort.SortPanel;
 import com.Sort.TextComponent;
-import com.Sort.sortMethod.Select_Sort;
-import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.io.File;
 
@@ -59,7 +57,7 @@ public class SortFile {
             case "插入排序":
                 arrays=Insert;
                 break;
-            case "堆  排序":
+            case "堆排序":
                 arrays=Heap;
                 break;
             case "基数排序":
@@ -98,7 +96,7 @@ public class SortFile {
                 Insert=new int[array.length];
                 Insert=array;
                 break;
-            case "堆  排序":
+            case "堆排序":
                 Heap=new int[array.length];
                 Heap=array;
                 break;

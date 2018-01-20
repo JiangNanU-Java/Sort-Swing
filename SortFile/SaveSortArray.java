@@ -1,7 +1,7 @@
 package com.Sort.SortFile;
 
-import com.Sort.*;
-import com.Sort.sortMethod.*;
+import com.Sort.SelectComponent;
+import com.Sort.TextComponent;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -59,11 +59,11 @@ public class SaveSortArray extends SortFile{
 
         //构建字符串
         stringBuilder = new StringBuilder();
-        stringBuilder.append(String.join(" -> ","数组大小","所用时间"));
+        stringBuilder.append(String.join("|","数组大小","所用时间"));
         stringBuilder.append("\r\n");
         //length每次递增5万，时间与之对应
         for(int i = 0,length=0; i <timeArray.length; i++,length+=50000){
-            stringBuilder.append(length).append(" -> ").append(timeArray[i]);
+            stringBuilder.append(length).append("|").append(timeArray[i]);
             stringBuilder.append("\r\n");
         }
 
@@ -75,7 +75,7 @@ public class SaveSortArray extends SortFile{
     private void setResultText(){
         textComponent=new TextComponent();
         for (int i=0,length=0;i<timeArray.length;i++,length+=50000){
-            textComponent.setResultText(length+" -> "+timeArray[i]+"ms");
+            textComponent.setResultText(length+"|"+timeArray[i]+"ms");
         }
     }
 }
