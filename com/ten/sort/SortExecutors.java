@@ -28,7 +28,7 @@ public class SortExecutors {
             newSortThread = new doSort(sortType);
 
             //将结果保存在SortFile中
-            SortFile.setSortTypeArray(sortType,newSortThread.getTimes());
+            SortFile.setSortTypeArray(sortType, newSortThread.getTimes());
 
         } catch (Exception e) {
             e.printStackTrace();

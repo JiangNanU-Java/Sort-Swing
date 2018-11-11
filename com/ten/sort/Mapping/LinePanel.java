@@ -17,8 +17,8 @@ class LinePanel extends JPanel {
 
     public LinePanel() {
         //初始化
-        sortType= SelectComponent.getSortType();
-        lineColor=doMapping.getLineColor();
+        sortType = SelectComponent.getSortType();
+        lineColor = doMapping.getLineColor();
 
         setBorder(BorderFactory.createEtchedBorder());
         setLayout(new GridLayout(16, 1, 0, 10));
@@ -29,7 +29,7 @@ class LinePanel extends JPanel {
 
         //八次排序画线
         for (int i = 0; i < 8; i++) {
-            JButton lineButton=new JButton(sortType[i]);
+            JButton lineButton = new JButton(sortType[i]);
             lineButton.setBackground(lineColor[i]);
             lineButton.setBorder(BorderFactory.createEmptyBorder());
             add(lineButton);

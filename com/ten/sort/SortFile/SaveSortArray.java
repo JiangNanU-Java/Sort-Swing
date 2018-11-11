@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * "生成"按钮触发，将排序好的结果存储起来，如果已存在那么更新
  */
-public class SaveSortArray extends SortFile{
+public class SaveSortArray extends SortFile {
     //输出流
     private BufferedWriter bufferedWriter;
 
@@ -53,29 +53,29 @@ public class SaveSortArray extends SortFile{
     }
 
     //获取数据源
-    private String getDataSource(String sortType){
+    private String getDataSource(String sortType) {
         //获取对应排序类型的数组
-        timeArray=getSortTypeArray(sortType);
+        timeArray = getSortTypeArray(sortType);
 
         //构建字符串
         stringBuilder = new StringBuilder();
-        stringBuilder.append(String.join("|","数组大小","所用时间"));
+        stringBuilder.append(String.join("|", "数组大小", "所用时间"));
         stringBuilder.append("\r\n");
         //length每次递增5万，时间与之对应
-        for(int i = 0,length=0; i <timeArray.length; i++,length+=50000){
+        for (int i = 0, length = 0; i < timeArray.length; i++, length += 50000) {
             stringBuilder.append(length).append("|").append(timeArray[i]);
             stringBuilder.append("\r\n");
         }
 
-        stringBuilder.deleteCharAt(stringBuilder.length() -1);
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
         return stringBuilder.toString();
     }
 
     //将数据源在result上显示出来
-    private void setResultText(){
-        textComponent=new TextComponent();
-        for (int i=0,length=0;i<timeArray.length;i++,length+=50000){
-            textComponent.setResultText(length+"|"+timeArray[i]+"ms");
+    private void setResultText() {
+        textComponent = new TextComponent();
+        for (int i = 0, length = 0; i < timeArray.length; i++, length += 50000) {
+            textComponent.setResultText(length + "|" + timeArray[i] + "ms");
         }
     }
 }

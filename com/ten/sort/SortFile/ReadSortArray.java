@@ -8,7 +8,7 @@ import java.io.*;
 /**
  * "读取"按钮触发，从本地txt文件中读入选择项的文件，获取已经保存的时间数组
  */
-public class ReadSortArray extends SortFile{
+public class ReadSortArray extends SortFile {
     //输入流
     private BufferedReader bufferedReader;
 
@@ -45,19 +45,19 @@ public class ReadSortArray extends SortFile{
                     //获取对应的数组
                     String[] textString = arrayString.split("\r\n");
                     int[] textInt = new int[textString.length];
-                    System.out.println("本次排序"+filename+"数组容量为"+textInt.length);
+                    System.out.println("本次排序" + filename + "数组容量为" + textInt.length);
                     for (int i = 1; i < textString.length; i++) {
                         //ms转换成s
-                        if (filename=="希尔排序"||filename=="堆排序"||filename=="快速排序"||filename=="基数排序") {
+                        if (filename == "希尔排序" || filename == "堆排序" || filename == "快速排序" || filename == "基数排序") {
                             textInt[i] = Integer.parseInt(textString[i]);
-                        }else {
-                            textInt[i] = (Integer.parseInt(textString[i]))/1000;
+                        } else {
+                            textInt[i] = (Integer.parseInt(textString[i])) / 1000;
                         }
                         System.out.println(textInt[i]);
                     }
 
                     //用提取到的数据修改对应的排序时间数组
-                    setSortTypeArray(filename,textInt);
+                    setSortTypeArray(filename, textInt);
 
                 }
             }
@@ -67,18 +67,18 @@ public class ReadSortArray extends SortFile{
     //获取文件的内容，生成一个字符串
     private String getContent(File file) throws IOException {
         //初始化输入流
-        bufferedReader=new BufferedReader(new FileReader(this.file));
-        stringBuilder=new StringBuilder();
+        bufferedReader = new BufferedReader(new FileReader(this.file));
+        stringBuilder = new StringBuilder();
 
-        String content=" ";
+        String content = " ";
         //若输入流不为空，则继续读取下一行
-        while (content!=null){
-            content=bufferedReader.readLine();
+        while (content != null) {
+            content = bufferedReader.readLine();
 
             //若读到null，则读取结束
-            if (content==null)break;
+            if (content == null) break;
 
-            String[] contentsplit=content.split("\\|");
+            String[] contentsplit = content.split("\\|");
 
             //将读取的字符串加到StringBuilder中
             stringBuilder.append(contentsplit[1].trim());
@@ -89,7 +89,7 @@ public class ReadSortArray extends SortFile{
         bufferedReader.close();
 
         //将读取的文件显示在result中
-        textComponent=new TextComponent();
+        textComponent = new TextComponent();
         textComponent.setSortText(stringBuilder.toString());
 
         //返回读取到的字符串

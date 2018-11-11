@@ -5,12 +5,13 @@ public class Heap_Sort extends Example {
         // 堆排序
         heapSort(arr);
     }
+
     /**
      * 堆排序
      */
     private static void heapSort(int[] arr) {
         // 将待排序的序列构建成一个大顶堆
-        for (int i = arr.length / 2; i >= 0; i--){
+        for (int i = arr.length / 2; i >= 0; i--) {
             heapAdjust(arr, i, arr.length);
         }
 
@@ -23,9 +24,10 @@ public class Heap_Sort extends Example {
 
     /**
      * 构建堆的过程
+     *
      * @param arr 需要排序的数组
-     * @param i 需要构建堆的根节点的序号
-     * @param n 数组的长度
+     * @param i   需要构建堆的根节点的序号
+     * @param n   数组的长度
      */
     private static void heapAdjust(int[] arr, int i, int n) {
         int child;

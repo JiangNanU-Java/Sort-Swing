@@ -21,8 +21,8 @@ public class SortFile {
     protected TextComponent textComponent;
 
     //默认文件和默认目录
-    protected static final String DEFAULT_PATH="C:\\Users\\59682\\Desktop\\Java\\SortArray\\Default.txt";
-    protected static final String DEFAULT_DIRECTORY="C:\\Users\\59682\\Desktop\\Java\\SortArray\\";
+    protected static final String DEFAULT_PATH = "C:\\Users\\59682\\Desktop\\Java\\SortArray\\Default.txt";
+    protected static final String DEFAULT_DIRECTORY = "C:\\Users\\59682\\Desktop\\Java\\SortArray\\";
 
     //保存每个排序方法的结果的数组
     private static int[] Select;
@@ -35,34 +35,34 @@ public class SortFile {
     private static int[] Quick;
 
     //获取参数对应的 排序数组
-    public static int[] getSortTypeArray(String sortType){
-        int[] arrays=new int[21];
+    public static int[] getSortTypeArray(String sortType) {
+        int[] arrays = new int[21];
 
         //选择器
         switch (sortType) {
             case "选择排序":
-                arrays=Select;
+                arrays = Select;
                 break;
             case "冒泡排序":
-                arrays=Bubble;
+                arrays = Bubble;
                 break;
             case "快速排序":
-                arrays=Quick;
+                arrays = Quick;
                 break;
             case "希尔排序":
-                arrays=Shell;
+                arrays = Shell;
                 break;
             case "插入排序":
-                arrays=Insert;
+                arrays = Insert;
                 break;
             case "堆排序":
-                arrays=Heap;
+                arrays = Heap;
                 break;
             case "基数排序":
-                arrays=Radix;
+                arrays = Radix;
                 break;
             case "合并排序":
-                arrays=Merge;
+                arrays = Merge;
                 break;
             default:
                 break;
@@ -71,40 +71,40 @@ public class SortFile {
     }
 
     //将参数对应的排序结果，写入排序数组
-    public static void setSortTypeArray(String arrayType,int[] array){
+    public static void setSortTypeArray(String arrayType, int[] array) {
         //排序选择器
         switch (arrayType) {
             case "选择排序":
-                Select=new int[array.length];
-                Select=array;
+                Select = new int[array.length];
+                Select = array;
                 break;
             case "冒泡排序":
-                Bubble=new int[array.length];
-                Bubble=array;
+                Bubble = new int[array.length];
+                Bubble = array;
                 break;
             case "快速排序":
-                Quick=new int[array.length];
-                Quick=array;
+                Quick = new int[array.length];
+                Quick = array;
                 break;
             case "希尔排序":
-                Shell=new int[array.length];
-                Shell=array;
+                Shell = new int[array.length];
+                Shell = array;
                 break;
             case "插入排序":
-                Insert=new int[array.length];
-                Insert=array;
+                Insert = new int[array.length];
+                Insert = array;
                 break;
             case "堆排序":
-                Heap=new int[array.length];
-                Heap=array;
+                Heap = new int[array.length];
+                Heap = array;
                 break;
             case "基数排序":
-                Radix=new int[array.length];
-                Radix=array;
+                Radix = new int[array.length];
+                Radix = array;
                 break;
             case "合并排序":
-                Merge=new int[array.length];
-                Merge=array;
+                Merge = new int[array.length];
+                Merge = array;
                 break;
             default:
                 break;
@@ -115,24 +115,31 @@ public class SortFile {
     public static int[] getSelect() {
         return Select;
     }
+
     public static int[] getInsert() {
         return Insert;
     }
+
     public static int[] getBubble() {
         return Bubble;
     }
+
     public static int[] getHeap() {
         return Heap;
     }
+
     public static int[] getMerge() {
         return Merge;
     }
+
     public static int[] getRadix() {
         return Radix;
     }
+
     public static int[] getShell() {
         return Shell;
     }
+
     public static int[] getQuick() {
         return Quick;
     }

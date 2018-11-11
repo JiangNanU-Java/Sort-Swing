@@ -16,18 +16,18 @@ class ButtonPanel extends JPanel {
 
     private doMapping mapping;
     private MyCanvas trendChartCanvas = new MyCanvas();
-    private CommonCanvas commonCanvas=new CommonCanvas();
-    private DerivativeCanvas derivativeCanvas=new DerivativeCanvas();
-    private FittingCanvas fittingCanvas=new FittingCanvas();
+    private CommonCanvas commonCanvas = new CommonCanvas();
+    private DerivativeCanvas derivativeCanvas = new DerivativeCanvas();
+    private FittingCanvas fittingCanvas = new FittingCanvas();
 
-    public ButtonPanel(){
+    public ButtonPanel() {
 
-        commonButton=new JButton("普通曲线");
-        derivativeButton=new JButton("一阶导数");
-        fittingButton=new JButton("拟合曲线");
+        commonButton = new JButton("普通曲线");
+        derivativeButton = new JButton("一阶导数");
+        fittingButton = new JButton("拟合曲线");
 
         setBorder(BorderFactory.createEtchedBorder());
-        setLayout(new GridLayout(4,1,0,10));
+        setLayout(new GridLayout(4, 1, 0, 10));
 
         add(new JLabel("功能选择："));
 

@@ -6,7 +6,7 @@ public class Merge_Sort extends Example {
     }
 
     private static void Sort(int[] a, int left, int right) {
-        if(left>=right)
+        if (left >= right)
             return;
 
         int mid = (left + right) / 2;
@@ -22,26 +22,26 @@ public class Merge_Sort extends Example {
         int[] tmp = new int[a.length];
         int r1 = mid + 1;
         int tIndex = left;
-        int cIndex=left;
+        int cIndex = left;
         // 逐个归并
-        while(left <=mid && r1 <= right) {
+        while (left <= mid && r1 <= right) {
             if (a[left] <= a[r1])
                 tmp[tIndex++] = a[left++];
             else
                 tmp[tIndex++] = a[r1++];
         }
         // 将左边剩余的归并
-        while (left <=mid) {
+        while (left <= mid) {
             tmp[tIndex++] = a[left++];
         }
         // 将右边剩余的归并
-        while ( r1 <= right ) {
+        while (r1 <= right) {
             tmp[tIndex++] = a[r1++];
         }
 
         //从临时数组拷贝到原数组
-        while(cIndex<=right){
-            a[cIndex]=tmp[cIndex];
+        while (cIndex <= right) {
+            a[cIndex] = tmp[cIndex];
             cIndex++;
         }
     }

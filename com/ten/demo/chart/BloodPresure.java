@@ -1,4 +1,4 @@
-package com.ten.demo.game;
+package com.ten.demo.chart;
 
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
@@ -22,7 +22,7 @@ import javax.swing.UIManager;
  * @author Freedoman
  * @Time 2014-1-1
  */
-public class TrendChart extends JFrame {
+public class BloodPresure extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private Image iBuffer;
@@ -52,13 +52,13 @@ public class TrendChart extends JFrame {
     private final int PRESS_INTERVAL = 10;
 
     // 保存当前测量高压和低压值数组,数组长度计数器
-    private int[] CurrentHighPressInput = { 150, 150, 150, 150, 150, 150, 150,
-            150, 150, 150, 150, 150, 150, 150, 150, 150 };
-    private int[] CurrentLowPressInput = { 75, 75, 75, 75, 75, 75, 75, 75, 75,
-            75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75 };
+    private int[] CurrentHighPressInput = {150, 150, 150, 150, 150, 150, 150,
+            150, 150, 150, 150, 150, 150, 150, 150, 150};
+    private int[] CurrentLowPressInput = {75, 75, 75, 75, 75, 75, 75, 75, 75,
+            75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75};
     private int CurrentPressInputLength = 1;
 
-    public TrendChart() {
+    public BloodPresure() {
 
         super("自定义血压趋势坐标图-FreeDoman");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -113,6 +113,7 @@ public class TrendChart extends JFrame {
     class MyCanvas extends Canvas {
 
         private static final long serialVersionUID = 1L;
+
         public void paint(Graphics g) {
             Graphics2D g2D = (Graphics2D) g;
 
@@ -225,6 +226,6 @@ public class TrendChart extends JFrame {
             e.printStackTrace();
         }
 
-        new TrendChart();
+        new BloodPresure();
     }
 }

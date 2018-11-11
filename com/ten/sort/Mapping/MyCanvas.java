@@ -51,25 +51,25 @@ public class MyCanvas extends Canvas {
     //获取每个排序的时间（原单位：毫秒）
     public MyCanvas() {
         //获取画线颜色
-        lineColor=doMapping.getLineColor();
+        lineColor = doMapping.getLineColor();
 
         //获取画线的名称
-        lineName= SelectComponent.getSortType();
+        lineName = SelectComponent.getSortType();
 
         //为排序数组获取数值
-        Select= SortFile.getSelect();
-        Insert=SortFile.getInsert();
-        Bubble=SortFile.getBubble();
-        Heap=SortFile.getHeap();
-        Merge=SortFile.getMerge();
-        Radix=SortFile.getRadix();
-        Shell=SortFile.getShell();
-        Quick=SortFile.getQuick();
-        sortArray= new int[][]{Select, Bubble, Quick, Shell, Insert, Heap, Radix, Merge};
+        Select = SortFile.getSelect();
+        Insert = SortFile.getInsert();
+        Bubble = SortFile.getBubble();
+        Heap = SortFile.getHeap();
+        Merge = SortFile.getMerge();
+        Radix = SortFile.getRadix();
+        Shell = SortFile.getShell();
+        Quick = SortFile.getQuick();
+        sortArray = new int[][]{Select, Bubble, Quick, Shell, Insert, Heap, Radix, Merge};
     }
 
     //绘图
-    public void paint (Graphics g) {
+    public void paint(Graphics g) {
         Graphics2D g2D = (Graphics2D) g;
         //定义颜色
         Color c = new Color(200, 70, 0);
@@ -116,18 +116,18 @@ public class MyCanvas extends Canvas {
         //八种排序绘制
         for (int j = 0; j < 8; j++) {
             g.setColor(lineColor[j]);
-            if (sortArray[j]!=null) {
-                tempArray=new int[sortArray[j].length];
+            if (sortArray[j] != null) {
+                tempArray = new int[sortArray[j].length];
                 tempArray = sortArray[j];
                 System.out.println(j);
-            }else
+            } else
                 continue;
             //绘制直线，通过循环，将所有的点连线
             for (int i = 0; i < 20; i++) {
                 g2D.drawLine(Origin_X + i * LENGTH_INTERVAL, Origin_Y - tempArray[i],
                         Origin_X + (i + 1) * LENGTH_INTERVAL, Origin_Y - tempArray[i + 1]);
-                if (i==19){
-                    g2D.drawString(lineName[j],Origin_X + (i + 1) * LENGTH_INTERVAL+10,Origin_Y - tempArray[i + 1]);
+                if (i == 19) {
+                    g2D.drawString(lineName[j], Origin_X + (i + 1) * LENGTH_INTERVAL + 10, Origin_Y - tempArray[i + 1]);
                 }
             }
         }

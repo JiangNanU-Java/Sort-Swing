@@ -1,4 +1,4 @@
-package com.ten.demo.BlockQueue;
+package com.ten.demo.search;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,7 +12,7 @@ import java.util.concurrent.BlockingQueue;
  * @author wshten
  * @date 2018/11/11
  */
-public class BlockingQueueTest {
+public class BlockingQueueSearcher {
     private static final int FILE_QUEUE_SIZE = 10;
     private static final int SEARCH_THREAD = 100;
     private static final File DUMMY = new File("");
@@ -53,7 +53,9 @@ public class BlockingQueueTest {
                                 done = true;
                             }
                             //若不是虚拟对象，那么继续查找search
-                            else search(file, keyword);
+                            else {
+                                search(file, keyword);
+                            }
                         }
                     } catch (InterruptedException | FileNotFoundException e) {
                         e.printStackTrace();
