@@ -1,8 +1,7 @@
 package com.ten.sort;
 
 import com.ten.sort.dialogFrame.ExDialog;
-import com.ten.sort.sortMethod.*;
-import com.ten.sort.sortMethod.*;
+import com.ten.sort.sortmethod.*;
 
 /**
  * 每次排序都生成一个doSort对象
@@ -15,7 +14,7 @@ public class doSort {
     private long endTime;
 
     //数组开始时初始排序的数组大小
-    private int length=0;
+    private int length = 0;
 
     //每次排序都重新生成对应大小的随机数组
     private int[] array;
@@ -29,34 +28,34 @@ public class doSort {
     //文本框对象的操作
     private TextComponent textArea;
 
-    public doSort(String sortType){
-        this.sortType=sortType;
-        times=new int[21];
+    public doSort(String sortType) {
+        this.sortType = sortType;
+        times = new int[21];
 
         //对文本框对象的操作初始化
-        textArea=new TextComponent();
-        textArea.setSortText(sortType+"---------------已经开始---------------");
+        textArea = new TextComponent();
+        textArea.setSortText(sortType + "---------------已经开始---------------");
 
         this.sort();
 
-        textArea.setSortText(sortType+"---------------排序完成---------------");
+        textArea.setSortText(sortType + "---------------排序完成---------------");
 
         //弹出对话框提示
         new ExDialog(null, sortType + " 排序完成");
     }
 
-    private void sort(){
+    private void sort() {
         //从0开始，每次五万，直到100万
-        for (int i=0;i<21;i++) {
+        for (int i = 0; i < 21; i++) {
             //重新定义随机数组array
-            array=new int[length];
-            new RandomArray(array,length);
-            length+=50000;
+            array = new int[length];
+            new RandomArray(array, length);
+            length += 50000;
 
             //记录一次排序的开始时间
-            startTime=System.currentTimeMillis();
+            startTime = System.currentTimeMillis();
 
-            if (i>0) {
+            if (i > 0) {
                 //排序选择器
                 switch (sortType) {
                     case "选择排序":
@@ -89,23 +88,23 @@ public class doSort {
             }
 
             //记录一次排序的结束时间
-            endTime=System.currentTimeMillis();
+            endTime = System.currentTimeMillis();
 
             //记录本次排序所用时间
-            this.setTimes(i, (int) (endTime-startTime));
+            this.setTimes(i, (int) (endTime - startTime));
         }
     }
 
     //记录每次排序所用时间
-    private void setTimes(int index,int sorttime){
-        times[index]=sorttime;
+    private void setTimes(int index, int sorttime) {
+        times[index] = sorttime;
 
         //将一次的排序时间打印在排序文本框
-        textArea.setSortText(sortType+"-------数组大小:"+(index*50000)+"-------用时:"+(endTime-startTime)+"ms"+" -> "+(endTime-startTime)+"ms");
+        textArea.setSortText(sortType + "-------数组大小:" + (index * 50000) + "-------用时:" + (endTime - startTime) + "ms" + " -> " + (endTime - startTime) + "ms");
     }
 
     //获取排序用时的记录
-    public int[] getTimes(){
+    public int[] getTimes() {
         return times;
     }
 }
