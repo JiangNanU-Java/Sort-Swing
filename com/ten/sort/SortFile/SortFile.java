@@ -20,7 +20,7 @@ public class SortFile {
     //对文本框的操作
     protected TextComponent textComponent;
 
-    //默认文件和默认目录
+    //TODO 默认文件和默认目录
     protected static final String DEFAULT_PATH = "C:\\Users\\59682\\Desktop\\Java\\SortArray\\Default.txt";
     protected static final String DEFAULT_DIRECTORY = "C:\\Users\\59682\\Desktop\\Java\\SortArray\\";
 
